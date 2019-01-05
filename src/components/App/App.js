@@ -1,13 +1,3 @@
-import React from 'react';
+import React from 'react'
 
-const App = () => {
-	return (
-		<div className="App">
-			<p className="description">
-				Миру-мир, студентам - beer.
-			</p>
-		</div>
-	)
-};
-
-export default App;
+export default () => <p>Homework app</p>
