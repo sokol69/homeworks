@@ -7,7 +7,12 @@ class Layout extends PureComponent {
     const { header, footer, children } = this.props;
     return (
       <Fragment>
-		{this.renderHeader(header)}
+        {header ? (
+          <header className="header">
+            <SectionTitle className="header__title">Header</SectionTitle>
+            {this.renderHeader(header)}
+          </header>
+        ) : null}
         <main
           className={`main ${header ? 'main--with-header' : ''} ${
             footer ? 'main--with-footer' : ''
@@ -22,23 +27,7 @@ class Layout extends PureComponent {
   }
 
   renderHeader(HeaderChild) {
-		// if (HeaderChild) {
-		// 	return (
-		// 		<header className="header">
-		// 			<SectionTitle className="header__title">Header</SectionTitle>
-		// 			<HeaderChild className="header" />
-		// 		</header>
-		// 	);
-		// } else {
-		// 	return (
-		// 		<header className="header">
-		// 			<SectionTitle className="header__title">Header</SectionTitle>
-		// 		</header>
-		// 	);
-		// }
-	//}
-	
-	return HeaderChild ? <HeaderChild className="header" /> : null;
+    return HeaderChild ? <HeaderChild /> : null;
   }
 
   renderFooter(FooterChild) {
