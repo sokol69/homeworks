@@ -46,7 +46,8 @@ class AuthProvider extends PureComponent {
   logout = () => {
     this.setState({
       isAuthorized: false,
-      authorizeError: ''
+	  authorizeError: '',
+	  email: ''
     });
   };
 
