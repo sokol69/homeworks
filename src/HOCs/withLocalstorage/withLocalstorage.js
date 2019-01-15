@@ -18,7 +18,6 @@ function withLocalstorage(WrappedComponent) {
     };
 
     SaveData = (localStorageKey, data) => {
-      console.log('SaveData');
       save(localStorageKey, data);
     };
 

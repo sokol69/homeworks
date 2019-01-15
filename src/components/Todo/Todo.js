@@ -37,7 +37,6 @@ class Todo extends PureComponent {
     }
     this.props.SaveData('todo-list', newTodos);
     this.props.updateData();
-    console.log(eventId);
   };
 
   createNewRecord = () => {
@@ -61,8 +60,6 @@ class Todo extends PureComponent {
         ]);
       }
       this.props.updateData();
-
-      console.log(this.props.SavedData);
 
       this.setState({
         inputValue: ''
