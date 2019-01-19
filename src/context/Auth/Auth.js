@@ -15,7 +15,7 @@ class AuthProvider extends Component {
       this.setState({ isAuthorized: true, authError: '' });
     } else {
       this.setState({ authError: 'Почта или пароль не верные' });
-    }
+	}	
   };
 
   getProviderValue = () => {
@@ -26,8 +26,8 @@ class AuthProvider extends Component {
   render() {
     const { children } = this.props;
     return <Provider value={this.getProviderValue()}>{children}</Provider>;
-  }
-}
+  };
+};
 
 const withAuth = WrappedComponent => {
   class AuthHOC extends Component {
@@ -38,8 +38,8 @@ const withAuth = WrappedComponent => {
           {contextProps => <WrappedComponent {...contextProps} {...rest} />}
         </Consumer>
       );
-    }
-  }
+    };
+  };
 
   return AuthHOC;
 };

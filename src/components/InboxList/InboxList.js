@@ -1,5 +1,20 @@
-// Реализуйте компонент InboxList
-// Он должен показывать список входящих писем.
-// Используйте HOC withData из `/context/Data` чтобы получить данные.
+import React, { Component } from 'react';
+import { withData } from '../../context/Data';
+import MailList from '../MailList';
 
-// Этот компонент должен использовать MailList для отображения данных.
+class InboxList extends Component {
+	render() {
+		const { data } = this.props;
+		return (
+			<MailList
+				listclass="t-inbox-list"
+				list={data.inbox}
+				adress="/app/inbox/"
+				inbox={true}
+			>
+			</MailList>
+		);
+	};
+};
+
+export default withData(InboxList);
