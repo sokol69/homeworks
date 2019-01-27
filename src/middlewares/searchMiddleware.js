@@ -1,8 +1,19 @@
-// Реализуйте searchMiddleware
-// Обратите внимание на файл `searchMiddleware.test.js`
+import { search } from '../api';
+import {
+	getSeriesRequest,
+	getSeriesSuccess,
+	getSeriesFailure
+} from '../actions';
 
-// Вам необходимо обработать searchRequest
-// После получения данных с сервера - диспачте searchSuccess
-// В случае ошибки searchFailure
-
-// На забудьте вызвать метод next.
+export const searchMiddleware = store => next => action => {
+	if (action.type === getSeriesRequest.toString()) {
+		search(action.payload)
+			.then(data => {
+				store.dispatch(getSeriesSuccess(data));
+			})
+			.catch(error => {
+				store.dispatch(getSeriesFailure(error));
+			})
+	}
+	return next(action);
+};

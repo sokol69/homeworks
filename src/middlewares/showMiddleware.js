@@ -1,7 +1,19 @@
-// Реализуйте showMiddleware
+import { show } from '../api';
+import {
+	getShowRequest,
+	getShowSuccess,
+	getShowFailure
+} from '../actions';
 
-// Вам необходимо обработать showRequest
-// После получения данных с сервера - диспачте showSuccess
-// В случае ошибки showSuccess
-
-// На забудьте вызвать метод next.
+export const showMiddleware = store => next => action => {
+	if (action.type === getShowRequest.toString()) {
+		show(action.payload)
+			.then(data => {
+				store.dispatch(getShowSuccess(data));
+			})
+			.catch(error => {
+				store.dispatch(getShowFailure(error));
+			})
+	}
+	return next(action);
+};
