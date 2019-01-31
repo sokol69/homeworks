@@ -11,8 +11,7 @@ class Followers extends PureComponent {
 
 	if (isLoading) return <p>Загрузка информации о подписчиках</p>
 	if (!followersData) return <p>Нет информации о подписчиках</p>
-    // Покажите статус загрузки
-    // Если данные не были загружены - сообщите об этом пользователю
+
     return (
       <div className={cx(styles.root, 't-followers')}>
 	  	{followersData.map(follower => 
@@ -25,10 +24,6 @@ class Followers extends PureComponent {
 				<p className={styles.followerLogin}>{follower.login}</p>
 			</div>
 		  )}
-        {/* 
-        Отобразите список пользователей.
-        Для каждого пользователя покажите имя и аватарку.
-      */}
       </div>
     );
   }
@@ -45,5 +40,4 @@ const mapDispatchToProps = {
 	fetchFollowersRequest
 };
 
-// Используйте поля data, isLoading из стейта
 export default connect(mapStateToProps, mapDispatchToProps)(Followers);

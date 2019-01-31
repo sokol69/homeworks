@@ -11,6 +11,7 @@ class Router extends Component {
 				<Switch>
 					<Route path="/" exact component={Login} />
 					<PrivateRoute path="/search" component={Search} />
+					<Redirect to="/" />
 				</Switch>
 			</BrowserRouter>
 		);

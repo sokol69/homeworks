@@ -5,7 +5,6 @@ import { getFollowersInfo } from './api';
 import {
 	fetchRequest,
 	fetchSuccess,
-	fetchFailure
 } from './actions';
 
 

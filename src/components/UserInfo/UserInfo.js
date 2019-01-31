@@ -11,8 +11,7 @@ class UserInfo extends PureComponent {
 
 	if (isLoading) return <p>Загрузка информации о пользователе</p>
 	if (!userData) return <p>Нет информации о пользователе</p>
-    // Покажите статус загрузки
-    // Если данные не были загружены - сообщите об этом пользователю
+
     return (
       <div className={styles.root}>
         <div className={styles.imageWrapper}>
@@ -42,5 +41,4 @@ const mapDispatchToProps = {
 	fetchUserRequest
 };
 
-// Используйте поля data, isLoading из стейта
 export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

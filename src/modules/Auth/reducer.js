@@ -4,11 +4,11 @@ import { addApiKey } from './actions';
 import { createSelector } from 'reselect';
 
 const isAuthorized = handleActions({
-	[addApiKey]: () => {console.log('isAuthorized reducer'); return true}
+	[addApiKey]: () => true
 }, false);
 
 const apiKey = handleActions({
-	[addApiKey]: (_state, action) => {console.log('apiKey reducer'); return action.payload}
+	[addApiKey]: (_state, action) => action.payload
 }, '');
 
 export default combineReducers({
@@ -27,8 +27,3 @@ export const getApiKey = createSelector(
 export const getAuthState = createSelector(
 	state => state.auth.apiKey, apiKey => apiKey
 );
-
-// В этом редьюсере вам нужно будет обрабатывать addApiKey экшен.
-
-// Имеет смысл определить селекторы
-// getIsAuthorized, getApiKey

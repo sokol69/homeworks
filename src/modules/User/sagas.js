@@ -5,7 +5,6 @@ import { getUserName } from '../User/reducer';
 import {
 	fetchRequest,
 	fetchSuccess,
-	fetchFailure
 } from './actions';
 
 
