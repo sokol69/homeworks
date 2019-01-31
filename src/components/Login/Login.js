@@ -31,7 +31,7 @@ class Login extends PureComponent {
 
   render() {
     const { isAuthorized } = this.props;
-    const { key } = this.state;
+	const { key } = this.state;
 
     if (isAuthorized) return <Redirect to="/search" />;
 
@@ -63,10 +63,16 @@ class Login extends PureComponent {
         <p>После ввода нажмите Enter</p>
       </div>
     );
-  }
-}
+  };
+};
+
+const mapStateToProps = state => {
+	return {
+		isAuthorized: getIsAuthorized(state.auth),
+	};
+};
 
 export default connect(
-  state => ({ isAuthorized: getIsAuthorized(state) }),
+	mapStateToProps,
   { addApiKey }
 )(withRouter(Login));

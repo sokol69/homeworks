@@ -1,3 +1,20 @@
-// Реализуйте роутер
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Login from '../Login';
+import Search from '../Search';
+import PrivateRoute from '../PrivateRoute';
 
-// Вам потребуется использовать PrivateRoute
+class Router extends Component {
+	render() {
+		return (
+			<BrowserRouter>
+				<Switch>
+					<Route path="/" exact component={Login} />
+					<PrivateRoute path="/search" component={Search} />
+				</Switch>
+			</BrowserRouter>
+		);
+	};
+};
+
+export default Router;
